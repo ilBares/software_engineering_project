@@ -1,0 +1,39 @@
+{
+  "piatti": [
+    {
+      "piatto": "tagliata",
+      "periodo_validita": "01-12|25-12",
+      "ricetta": {
+        "porzioni": 5,
+        "carico_lavoro_porzione": 0.5,
+        "ingredienti": [
+          {
+            "ingrediente": "carne",
+            "quantita": 1.5,
+            "unita_misura": "KG"
+          },
+          {
+            "ingrediente": "limone",
+            "quantita": 0.1,
+            "unita_misura": "KG"
+          }
+        ]
+      }
+    },
+    {
+      "piatto": "pasta",
+      "periodo_validita": "01-01|31-12",
+      "ricetta": {
+        "porzioni": 5,
+        "carico_lavoro_porzione": 0.2,
+        "ingredienti": [
+          {
+            "ingrediente": "pasta",
+            "quantita": 1.0,
+            "unita_misura": "KG"
+          }
+        ]
+      }
+    }
+  ]
+}

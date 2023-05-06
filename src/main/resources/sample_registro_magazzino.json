@@ -1,0 +1,14 @@
+{
+  "inventario": [
+    {
+      "merce": "patata",
+      "quantita": 1,
+      "unita_misura": "KG"
+    },
+    {
+      "merce": "aranciata",
+      "quantita": 2,
+      "unita_misura": "L"
+    }
+  ]
+}

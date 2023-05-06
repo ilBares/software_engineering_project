@@ -1,0 +1,10 @@
+{
+  "carico_lavoro_persona": 1,
+  "numero_posti": 100,
+
+  "unita_misura_bevande": "L",
+
+  "unita_misura_generi_alimentari": "HG",
+
+  "anticipo_giorni_prenotazione": 60
+}

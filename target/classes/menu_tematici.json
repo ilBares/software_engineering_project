@@ -1,0 +1,20 @@
+{
+  "menu_tematici": [
+    {
+      "nome": "Menu Halloween",
+      "periodo_validita": "15-11|31-11",
+      "piatti": [
+        "tagliata",
+        "pasta"
+      ]
+    },
+    {
+      "nome": "Menu Natale",
+      "periodo_validita": "20-12|30-12",
+      "piatti": [
+        "tagliata",
+        "pasta"
+      ]
+    }
+  ]
+}

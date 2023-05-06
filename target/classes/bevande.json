@@ -1,0 +1,12 @@
+{
+  "bevande": [
+    {
+      "nome": "acqua",
+      "quantita": 1.5
+    },
+    {
+      "nome": "vino",
+      "quantita": 1.5
+    }
+  ]
+}

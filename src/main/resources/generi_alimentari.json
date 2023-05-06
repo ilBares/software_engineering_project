@@ -1,0 +1,12 @@
+{
+  "generi_alimentari": [
+    {
+      "nome": "pane",
+      "quantita": 1
+    },
+    {
+      "nome": "grissini",
+      "quantita": 1
+    }
+  ]
+}

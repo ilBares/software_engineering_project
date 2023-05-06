@@ -1,0 +1,30 @@
+{
+  "working_days": [
+    {
+      "day": "01-01-2024",
+      "prenotazioni": [
+        {
+          "cliente": "Marco",
+          "numero_coperti": 3,
+          "ordine": [
+            {
+              "nome": "tagliata",
+              "quantita": 4
+            },
+            {
+              "nome": "Menu tematico",
+              "quantita": 1
+            }
+          ]
+        }
+      ],
+      "lista_della_spesa": [
+        {
+          "merce": "patate",
+          "quantita": 1,
+          "unita_misura": "KG"
+        }
+      ]
+    }
+  ]
+}
