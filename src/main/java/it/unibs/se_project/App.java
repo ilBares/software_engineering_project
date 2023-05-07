@@ -7,6 +7,5 @@ public class App {
         // create ConfigService(ConfigStore)
 
         // create Controller with ConfigService
-        System.out.println("Restaurant project with git fixed!");
     }
 }

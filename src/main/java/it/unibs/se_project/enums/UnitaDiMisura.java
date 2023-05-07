@@ -1,17 +1,17 @@
 package it.unibs.se_project.enums;
 
 public enum UnitaDiMisura {
-    LITRO("L"),
-    KILOGRAMMO("KG"),
-    ETTOGRAMMO("HG");
+    L("LITRO"),
+    KG("KILOGRAMMO"),
+    HG("ETTOGRAMMO");
 
-    private final String abbreviazione;
+    private final String extended;
 
-    UnitaDiMisura(String abbreviazione) {
-        this.abbreviazione = abbreviazione;
+    UnitaDiMisura(String extended) {
+        this.extended = extended;
     }
 
-    public String getAbbreviazione() {
-        return abbreviazione;
+    public String getExtendedName() {
+        return extended;
     }
 }

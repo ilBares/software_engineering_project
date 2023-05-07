@@ -1,25 +1,28 @@
 package it.unibs.se_project.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ListaSpesa {
-    private String merce;
-    private double quantita;
-    private String unitaMisura;
+    private List<ItemListaSpesa> listaSpesa;
 
-    public ListaSpesa(String merce, double quantita, String unitaMisura) {
-        this.merce = merce;
-        this.quantita = quantita;
-        this.unitaMisura = unitaMisura;
+    @JsonCreator
+    public ListaSpesa(
+        @JsonProperty("lista_della_spesa") ItemListaSpesa listaSpesa[]
+    ) {
+        this.listaSpesa = List.of(listaSpesa);
     }
 
-    public String getMerce() {
-        return this.merce;
+    // TODO "add item"
+
+    public List<ItemListaSpesa> getListaSpesa() {
+        return listaSpesa;
     }
 
-    public double getQuantita() {
-        return this.quantita;
-    }
-
-    public String getUnitaMisura() {
-        return this.unitaMisura;
+    @Override
+    public String toString() {
+        return "ListaSpesa [listaSpesa=" + listaSpesa + "]";
     }
 }

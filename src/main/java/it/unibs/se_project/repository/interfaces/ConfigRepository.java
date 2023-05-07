@@ -1,6 +1,7 @@
 package it.unibs.se_project.repository.interfaces;
 
-public interface ConfigRepository<Config> {
+public interface ConfigRepository<T> {
     
-    Config getConfig();
+    T getConfig();
+    void updateConfig(T config);
 }

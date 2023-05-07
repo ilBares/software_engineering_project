@@ -1,27 +1,18 @@
 package it.unibs.se_project.model;
 
-public class Ingrediente {
-    private String nome;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    // quantita lo rimuovo? lo metto in ricetta con una HashMap?
-    private double quantita;
-    private String unitaMisura;
+import it.unibs.se_project.enums.UnitaDiMisura;
 
-    public Ingrediente(String nome, double quantita, String unitaMisura) {
-        this.nome = nome;
-        this.quantita = quantita;
-        this.unitaMisura = unitaMisura;
-    }
+public class Ingrediente extends Item {
 
-    public String getNome() {
-        return this.nome;
-    }
-
-    public double getQuantita() {
-        return this.quantita;
-    }
-
-    public String getUnitaMisura() {
-        return this.unitaMisura;
+    @JsonCreator
+    public Ingrediente(
+        @JsonProperty("nome") String nome,
+        @JsonProperty("quantita") double quantita,
+        @JsonProperty("unita_misura") UnitaDiMisura unitaMisura
+    ) {
+        super(nome, quantita, unitaMisura);
     }
 }

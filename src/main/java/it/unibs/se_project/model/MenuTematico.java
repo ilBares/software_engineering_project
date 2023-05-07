@@ -1,14 +1,24 @@
 package it.unibs.se_project.model;
 
+import java.util.Arrays;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MenuTematico {
     private String nome;
     private String periodoValidita;
-    private String[] piatti;
+    private String[] nomiPiatti;
 
-    public MenuTematico(String nome, String periodoValidita, String[] piatti) {
+    @JsonCreator
+    public MenuTematico(
+        @JsonProperty("nome") String nome,
+        @JsonProperty("periodo_validita") String periodoValidita,
+        @JsonProperty("nomi_piatti") String[] piatti
+    ) {
         this.nome = nome;
         this.periodoValidita = periodoValidita;
-        this.piatti = piatti;
+        this.nomiPiatti = piatti;
     }
 
     public String getNome() {
@@ -20,6 +30,12 @@ public class MenuTematico {
     }
 
     public String[] getPiatti() {
-        return this.piatti;
+        return this.nomiPiatti;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuTematico [nome=" + nome + ", periodoValidita=" + periodoValidita + ", nomiPiatti="
+                + Arrays.toString(nomiPiatti) + "]";
     }
 }

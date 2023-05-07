@@ -2,7 +2,11 @@ package it.unibs.se_project.repository.interfaces;
 
 import java.util.List;
 
-public interface PiattiRepository<Piatto> {
+public interface PiattiRepository<T> {
     
-    List<Piatto> getPiatti();
+    List<T> getPiatti();
+    void setPiatti(T[] array);
+
+    void add(T piatto);
+    boolean delete(T piatto);
 }

@@ -1,18 +1,17 @@
 {
-  "working_days": [
-    {
-      "day": "01-01-2024",
+  "calendario": {
+    "2024-01-01": {
       "prenotazioni": [
         {
           "cliente": "Marco",
           "numero_coperti": 3,
-          "ordine": [
+          "ordini": [
             {
-              "nome": "tagliata",
+              "nome_piatto": "tagliata",
               "quantita": 4
             },
             {
-              "nome": "Menu tematico",
+              "nome_piatto": "Menu tematico",
               "quantita": 1
             }
           ]
@@ -20,11 +19,41 @@
       ],
       "lista_della_spesa": [
         {
-          "merce": "patate",
+          "nome": "patate",
           "quantita": 1,
           "unita_misura": "KG"
         }
       ]
+    },
+    "2024-03-02": {
+      "prenotazioni": [
+        {
+          "cliente": "Luca",
+          "numero_coperti": 2,
+          "ordini": [
+            {
+              "nome_piatto": "pasta",
+              "quantita": 4
+            },
+            {
+              "nome_piatto": "Menu tematico",
+              "quantita": 1
+            }
+          ]
+        }
+      ],
+      "lista_della_spesa": [
+        {
+          "nome": "patate",
+          "quantita": 3,
+          "unita_misura": "KG"
+        },
+        {
+          "nome": "carote",
+          "quantita": 2,
+          "unita_misura": "KG"
+        }
+      ]
     }
-  ]
+  }
 }

@@ -2,19 +2,27 @@ package it.unibs.se_project.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Ricetta {
-    private int porzione;
+    private int porzioni;
     private double caricoLavoroPorzione;
     private List<Ingrediente> ingredienti;
 
-    public Ricetta(int porzione, double caricoLavoroPorzione, List<Ingrediente> ingredienti) {
-        this.porzione = porzione;
+    @JsonCreator
+    public Ricetta(
+        @JsonProperty("porzioni") int porzioni,
+        @JsonProperty("carico_lavoro_porzione") double caricoLavoroPorzione,
+        @JsonProperty("ingredienti") List<Ingrediente> ingredienti
+    ) {
+        this.porzioni = porzioni;
         this.caricoLavoroPorzione = caricoLavoroPorzione;
         this.ingredienti = ingredienti;
     }
 
-    public int getPorzione() {
-        return this.porzione;
+    public int getPorzioni() {
+        return this.porzioni;
     }
 
     public double getCaricoLavoroPorzione() {
@@ -24,4 +32,10 @@ public class Ricetta {
     public List<Ingrediente> getIngredienti() {
         return this.ingredienti;
     }
+
+    @Override
+    public String toString() {
+        return "Ricetta [porzioni=" + porzioni + ", caricoLavoroPorzione=" + caricoLavoroPorzione + ", ingredienti="
+                + ingredienti + "]";
+    }   
 }

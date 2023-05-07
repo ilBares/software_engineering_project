@@ -1,12 +1,1 @@
-{
-  "generi_alimentari": [
-    {
-      "nome": "pane",
-      "quantita": 1
-    },
-    {
-      "nome": "grissini",
-      "quantita": 1
-    }
-  ]
-}
+[{"nome":"pane","quantita":1.0,"unita_misura":"KG"},{"nome":"grissini","quantita":1.0,"unita_misura":"KG"}]
