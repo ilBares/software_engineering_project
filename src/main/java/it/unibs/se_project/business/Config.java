@@ -57,8 +57,10 @@ public class Config {
 
     @Override
     public String toString() {
-        return "Config [anticipoGiorniPrenotazione=" + anticipoGiorniPrenotazione + ", caricoLavoroPersona="
-                + caricoLavoroPersona + ", numeroPosti=" + numeroPosti + ", unitaBevande=" + unitaBevande
-                + ", unitaGeneriExtra=" + unitaGeneriExtra + "]";
+        return "Config [anticipoGiorniPrenotazione=" + anticipoGiorniPrenotazione
+            + ", caricoLavoroPersona=" + caricoLavoroPersona
+            + ", numeroPosti=" + numeroPosti
+            + ", unitaBevande=" + unitaBevande
+            + ", unitaGeneriExtra=" + unitaGeneriExtra + "]";
     }
 }

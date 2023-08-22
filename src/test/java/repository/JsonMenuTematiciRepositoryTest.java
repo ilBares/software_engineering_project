@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.domain.MenuTematico;
+import it.unibs.se_project.business.MenuTematico;
 import it.unibs.se_project.repository.JsonMenuTematiciRepository;
 import it.unibs.se_project.repository.interfaces.MenuTematiciRepository;
 

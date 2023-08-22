@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Ricetta {
     private int porzioni;
-    // caricoLavoroPorzione < Config.caricoLavoroPersona
+
+    // caricoLavoroPorzione < config.caricoLavoroPersona
     private double caricoLavoroPorzione;
     private List<Ingrediente> ingredienti;
 

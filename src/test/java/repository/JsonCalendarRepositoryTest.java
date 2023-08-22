@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.domain.Calendario;
+import it.unibs.se_project.business.Calendario;
 import it.unibs.se_project.repository.JsonCalendarioRepository;
 import it.unibs.se_project.repository.interfaces.CalendarioRepository;
 

@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.domain.GenereExtra;
+import it.unibs.se_project.business.GenereExtra;
 import it.unibs.se_project.repository.JsonGeneriExtraRepository;
 import it.unibs.se_project.repository.interfaces.GeneriExtraRepository;
 

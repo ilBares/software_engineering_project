@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.domain.Bevanda;
+import it.unibs.se_project.business.Bevanda;
 import it.unibs.se_project.repository.JsonBevandeRepository;
 import it.unibs.se_project.repository.interfaces.BevandeRepository;
 

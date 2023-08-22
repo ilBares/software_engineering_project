@@ -5,12 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.domain.Bevanda;
-import it.unibs.se_project.domain.GenereExtra;
-import it.unibs.se_project.domain.Ingrediente;
-import it.unibs.se_project.domain.ItemListaSpesa;
-import it.unibs.se_project.domain.RegistroMagazzino;
-import it.unibs.se_project.enums.UnitaDiMisura;
+import it.unibs.se_project.business.RegistroMagazzino;
 import it.unibs.se_project.repository.JsonRegistroMagazzinoRepository;
 import it.unibs.se_project.repository.interfaces.RegistroMagazzinoRepository;
 
