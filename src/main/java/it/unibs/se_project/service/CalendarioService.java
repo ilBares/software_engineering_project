@@ -1,6 +1,6 @@
 package it.unibs.se_project.service;
 
-import it.unibs.se_project.model.Calendario;
+import it.unibs.se_project.business.Calendario;
 import it.unibs.se_project.repository.interfaces.CalendarioRepository;
 
 public class CalendarioService {

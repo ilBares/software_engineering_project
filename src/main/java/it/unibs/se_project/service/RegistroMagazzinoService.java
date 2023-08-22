@@ -1,6 +1,6 @@
 package it.unibs.se_project.service;
 
-import it.unibs.se_project.model.RegistroMagazzino;
+import it.unibs.se_project.business.RegistroMagazzino;
 import it.unibs.se_project.repository.interfaces.RegistroMagazzinoRepository;
 
 public class RegistroMagazzinoService {

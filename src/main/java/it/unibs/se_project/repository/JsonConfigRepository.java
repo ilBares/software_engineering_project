@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.unibs.se_project.model.Config;
+import it.unibs.se_project.business.Config;
 import it.unibs.se_project.repository.interfaces.ConfigRepository;
 
 public class JsonConfigRepository implements ConfigRepository<Config> {

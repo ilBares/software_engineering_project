@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.unibs.se_project.model.MenuTematico;
+import it.unibs.se_project.business.MenuTematico;
 import it.unibs.se_project.repository.interfaces.MenuTematiciRepository;
 
 public class JsonMenuTematiciRepository implements MenuTematiciRepository<MenuTematico> {

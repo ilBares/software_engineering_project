@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.unibs.se_project.model.Calendario;
+import it.unibs.se_project.business.Calendario;
 import it.unibs.se_project.repository.interfaces.CalendarioRepository;
 
 public class JsonCalendarioRepository implements CalendarioRepository<Calendario> {

@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.unibs.se_project.model.Bevanda;
+import it.unibs.se_project.business.Bevanda;
 import it.unibs.se_project.repository.interfaces.BevandeRepository;
 
 public class JsonBevandeRepository implements BevandeRepository<Bevanda> {

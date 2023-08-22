@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import it.unibs.se_project.model.Piatto;
+import it.unibs.se_project.business.Piatto;
 import it.unibs.se_project.repository.interfaces.PiattiRepository;
 
 public class JsonPiattiRepository implements PiattiRepository<Piatto> {
