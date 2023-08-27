@@ -10,7 +10,7 @@ import it.unibs.se_project.business.Config;
 import it.unibs.se_project.repository.interfaces.ConfigRepository;
 
 public class JsonConfigRepository implements ConfigRepository<Config> {
-    public static final String FILE_NAME = "src/main/resources/config.json";
+    public static final String FILE_NAME = "resources/config.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private Config config;
 

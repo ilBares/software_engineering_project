@@ -1,13 +1,6 @@
 package it.unibs.se_project;
 
-import it.unibs.se_project.controller.RestaurantController;
-import it.unibs.se_project.repository.JsonBevandeRepository;
-import it.unibs.se_project.repository.JsonCalendarioRepository;
-import it.unibs.se_project.repository.JsonConfigRepository;
-import it.unibs.se_project.repository.JsonGeneriExtraRepository;
-import it.unibs.se_project.repository.JsonMenuTematiciRepository;
-import it.unibs.se_project.repository.JsonPiattiRepository;
-import it.unibs.se_project.repository.JsonRegistroMagazzinoRepository;
+import it.unibs.se_project.controller.MagazziniereController;
 import it.unibs.se_project.view.MenuMagazziniere;
 
 public class Magazziniere {
@@ -18,14 +11,7 @@ public class Magazziniere {
         // create Controller with ConfigService
 
         // DEVO PASSARE I SERVICES, NON LE REPOSITORIES
-        RestaurantController controller = new RestaurantController(
-            new JsonBevandeRepository(),
-            new JsonCalendarioRepository(),
-            new JsonConfigRepository(),
-            new JsonGeneriExtraRepository(),
-            new JsonMenuTematiciRepository(),
-            new JsonPiattiRepository(),
-            new JsonRegistroMagazzinoRepository()
+        MagazziniereController controller = new MagazziniereController(
         );
 
         controller.toString();

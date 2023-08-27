@@ -20,7 +20,7 @@ public class JsonCalendarRepositoryTest {
     @Test
     public void testGetCalendario() {
         Calendario calendario = repository.getCalendario();
-        assertEquals(2, calendario.getCalendar().size());
+        assertEquals(3, calendario.getCalendar().size());
 
         System.out.println("\nCALENDARIO: " + calendario);
     }

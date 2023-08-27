@@ -1,17 +1,19 @@
 package it.unibs.se_project.view;
 
-import it.unibs.se_project.controller.RestaurantController;
+import it.unibs.se_project.controller.MagazziniereController;
+import it.unibs.se_project.view.interfaces.ShowableMenu;
 import it.unibs.se_project.view.utilities.MyMenu;
 import it.unibs.se_project.view.utilities.MyMenuItem;
 
-public class MenuMagazziniere {
-    private RestaurantController controller;
+public class MenuMagazziniere implements ShowableMenu {
+    private MagazziniereController controller;
     private MyMenu menu;
 
-    public MenuMagazziniere(RestaurantController controller) {
+    public MenuMagazziniere(MagazziniereController controller) {
         this.controller = controller;
     }
 
+    @Override
     public void showMenu() {
         this.initialize();
         menu.run();

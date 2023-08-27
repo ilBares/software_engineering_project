@@ -1,5 +1,7 @@
 package it.unibs.se_project.view.utilities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,6 +15,8 @@ public class DataInput {
 	private static final String MINIMUM_ERROR = "E' richiesto un valore maggiore a ";
 	private static final String EMPTY_STRING_ERROR = "Non hai inserito alcun carattere.";
 	private static final String ALLOWED_CHARS = "I caratteri ammissibili sono: ";
+    private static final String DATE_ERROR = "La data inserita non è nel formato corretto (aaaa-MM-dd).";
+    private static final String ALLOWED_DATE_ERROR = "La data inserita non è valida. L'intervallo accettato va da oggi al ";
 	private static final char YES = 'S';
 	private static final char NO = 'N';
 	private static final char DOT = '.';
@@ -229,5 +233,40 @@ public class DataInput {
         String myMessage = message + " (" + YES + "/" + NO + ")";
         char readValue = readUpperChar(myMessage, String.valueOf(YES) + String.valueOf(NO));
         return readValue == YES;
+    }
+
+    // daysAfterToday = maxDays
+    // System.out.println("Inserisci una data nel formato ISO (yyyy-MM-dd):");
+    public static LocalDate readISODate(String message, int daysAfterToday) {
+        LocalDate isoDate = null;
+        boolean endLoop = false;
+        
+        // Imposta il formato ISO per la lettura delle date
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_DATE;
+        
+        // Ottieni la data di oggi
+        LocalDate today = LocalDate.now();
+        
+        // Calcola la data massima accettata
+        LocalDate maxDate = today.plusDays(daysAfterToday);
+        
+        do {
+            try {
+                String input = readString(message).trim();
+                isoDate = LocalDate.parse(input, dateFormatter);
+
+                // Verifica se la data è valida (deve essere tra oggi e la data massima accettata)
+                if (isoDate.isBefore(today) || isoDate.isAfter(maxDate)) {
+                    System.out.println(ALLOWED_DATE_ERROR + maxDate.toString());
+                } else {
+                    endLoop = true;
+                }
+            } catch (Exception e) {
+                System.out.print(DATE_ERROR);
+                reader.next(); // Clear the invalid input
+            }
+        } while(!endLoop);
+
+        return isoDate;
     }
 }

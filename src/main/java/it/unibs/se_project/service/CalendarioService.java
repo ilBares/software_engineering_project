@@ -17,4 +17,10 @@ public class CalendarioService {
     public void updateCalendario(Calendario calendario) {
         repository.updateCalendario(calendario);
     }
+
+    // TODO addWorkingDay
+
+    // TODO addPrenotazione
+
+    // 
 }

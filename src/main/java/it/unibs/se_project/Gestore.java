@@ -1,6 +1,6 @@
 package it.unibs.se_project;
 
-import it.unibs.se_project.controller.RestaurantController;
+import it.unibs.se_project.controller.GestoreController;
 import it.unibs.se_project.repository.JsonBevandeRepository;
 import it.unibs.se_project.repository.JsonCalendarioRepository;
 import it.unibs.se_project.repository.JsonConfigRepository;
@@ -18,17 +18,15 @@ public class Gestore {
         // create Controller with ConfigService
 
         // DEVO PASSARE I SERVICES, NON LE REPOSITORIES
-        RestaurantController controller = new RestaurantController(
-            new JsonBevandeRepository(),
+        GestoreController controller = new GestoreController(
             new JsonCalendarioRepository(),
             new JsonConfigRepository(),
+            new JsonBevandeRepository(),
             new JsonGeneriExtraRepository(),
             new JsonMenuTematiciRepository(),
             new JsonPiattiRepository(),
             new JsonRegistroMagazzinoRepository()
         );
-
-        controller.toString();
 
         MenuGestore menu = new MenuGestore(controller);
         menu.showMenu();

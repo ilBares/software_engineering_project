@@ -1,16 +1,16 @@
 package it.unibs.se_project.business;
 
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class WorkingDay {
-    /// yyyy-mm-dd
+    // yyyy-mm-dd
     private Date day;
-    private Prenotazione[] prenotazioni;
+    private List<Prenotazione> prenotazioni;
     private ListaSpesa listaSpesa;
     // private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -21,7 +21,7 @@ public class WorkingDay {
         @JsonProperty("lista_della_spesa") ItemListaSpesa[] itemsListaSpesa
     ) throws ParseException {
         // this.day = dateFormat.parse(dayString);
-        this.prenotazioni = prenotazioni;
+        this.prenotazioni = List.of(prenotazioni);
         this.listaSpesa = new ListaSpesa(itemsListaSpesa);
     }
 
@@ -29,7 +29,7 @@ public class WorkingDay {
         return day;
     }
 
-    public Prenotazione[] getPrenotazioni() {
+    public List<Prenotazione> getPrenotazioni() {
         return prenotazioni;
     }
 
@@ -39,7 +39,7 @@ public class WorkingDay {
 
     @Override
     public String toString() {
-        return "WorkingDay [prenotazioni=" + Arrays.toString(prenotazioni) + ", listaSpesa="
-                + listaSpesa + "]";
+        return "WorkingDay [prenotazioni=" + prenotazioni
+            + ", listaSpesa=" + listaSpesa + "]";
     }
 }

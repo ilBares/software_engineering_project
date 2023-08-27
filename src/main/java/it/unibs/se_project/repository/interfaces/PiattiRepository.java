@@ -1,5 +1,6 @@
 package it.unibs.se_project.repository.interfaces;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface PiattiRepository<T> {

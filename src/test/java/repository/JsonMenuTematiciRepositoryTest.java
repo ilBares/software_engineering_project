@@ -24,7 +24,7 @@ public class JsonMenuTematiciRepositoryTest {
         List<MenuTematico> menuTematici = repository.getMenuTematici();
 
         assertEquals(menuTematici.size(), 2);
-        assertEquals(menuTematici.get(0).getPiatti()[1], "pasta");
+        assertEquals(menuTematici.get(0).getNomiPiatti().get(1), "pasta");
 
         System.out.println("\nMENU_TEMATICI: " + menuTematici);
     }

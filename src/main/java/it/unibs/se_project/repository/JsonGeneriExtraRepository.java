@@ -12,7 +12,7 @@ import it.unibs.se_project.business.GenereExtra;
 import it.unibs.se_project.repository.interfaces.GeneriExtraRepository;
 
 public class JsonGeneriExtraRepository implements GeneriExtraRepository<GenereExtra>{
-    public static final String FILE_NAME = "src/main/resources/generi_extra.json";
+    public static final String FILE_NAME = "resources/generi_extra.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private ArrayList<GenereExtra> generiExtra;
     
@@ -34,7 +34,7 @@ public class JsonGeneriExtraRepository implements GeneriExtraRepository<GenereEx
     public void setGeneriExtra(GenereExtra[] array) {
         generiExtra = array != null
             ? new ArrayList<GenereExtra>(List.of(array))
-            : null;
+            : new ArrayList<GenereExtra>();
     }
 
     @Override

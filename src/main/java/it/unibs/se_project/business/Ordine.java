@@ -5,27 +5,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Ordine {
     private String nomePiatto;
-    private int quantita;
+    private int numeroPersone;
 
     @JsonCreator
-    public Ordine (
+    public Ordine(
         @JsonProperty("nome_piatto") String nomePiatto,
-        @JsonProperty("quantita") int quantita
+        @JsonProperty("numero_persone") int numeroPersone
     ) {
         this.nomePiatto = nomePiatto;
-        this.quantita = quantita;
+        this.numeroPersone = numeroPersone;
     }
 
     public String getNomePiatto() {
         return nomePiatto;
     }
 
-    public int getQuantita() {
-        return quantita;
+    public int getNumeroPersone() {
+        return numeroPersone;
     }
 
     @Override
     public String toString() {
-        return "Ordine [nomePiatto=" + nomePiatto + ", quantita=" + quantita + "]";
+        return "Ordine [nomePiatto=" + nomePiatto
+            + ", numeroPersone=" + numeroPersone + "]";
     }
 }

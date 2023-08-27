@@ -13,4 +13,7 @@ class ConfigService {
     public Config getConfig() {
         return repository.getConfig();
     }
+
+    // update configuration
+    // example: setAnticipoGiorniPrenotazione
 }

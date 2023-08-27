@@ -1,6 +1,5 @@
 package it.unibs.se_project.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,7 +12,7 @@ public class RegistroMagazzino {
     public RegistroMagazzino(
         @JsonProperty("registro_magazzino") Item[] registroMagazzino
     ) {
-        this.registroMagazzino = new ArrayList<Item>(List.of(registroMagazzino));
+        this.registroMagazzino = List.of(registroMagazzino);
     }
 
     public void input(Item item) {

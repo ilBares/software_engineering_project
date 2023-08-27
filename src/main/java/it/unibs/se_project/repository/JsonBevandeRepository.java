@@ -12,7 +12,7 @@ import it.unibs.se_project.business.Bevanda;
 import it.unibs.se_project.repository.interfaces.BevandeRepository;
 
 public class JsonBevandeRepository implements BevandeRepository<Bevanda> {
-    public static final String FILE_NAME = "src/main/resources/bevande.json";
+    public static final String FILE_NAME = "resources/bevande.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private ArrayList<Bevanda> bevande;
 
@@ -34,7 +34,7 @@ public class JsonBevandeRepository implements BevandeRepository<Bevanda> {
     public void setBevande(Bevanda[] array) {
         bevande = array != null
             ? new ArrayList<Bevanda>(List.of(array))
-            : null;
+            : new ArrayList<Bevanda>();
     }
 
     @Override

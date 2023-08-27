@@ -1,15 +1,19 @@
 package it.unibs.se_project.business;
 
-import java.util.Arrays;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MenuTematico {
     private String nome;
-    private String periodoValidita;
-    private String[] nomiPiatti;
+    private Period periodoValidita;
+    private List<String> nomiPiatti;
 
+    // TODO
+    // bastano i nomi dei piatti per il menu tematico
+    // quando viene aggiunto un menu tematico a una prenotazione,
+    // vanno presi tutti i nomi
     @JsonCreator
     public MenuTematico(
         @JsonProperty("nome") String nome,
@@ -17,7 +21,7 @@ public class MenuTematico {
         @JsonProperty("nomi_piatti") String[] piatti
     ) {
         this.nome = nome;
-        this.periodoValidita = periodoValidita;
+        this.periodoValidita = Period.fromString(periodoValidita);
         // TODO
         // initializePiatti(nomiPiatti);
         // function che "prende" i nomi dalla JsonPiattiRepository
@@ -27,34 +31,38 @@ public class MenuTematico {
         // che restituisce un oggetto piatto dal nome (se presente)
         // restituisce solo i piatti disponibili nella data presente
         // PiattiRepositoryService.getAvailablePiattoObject(String nome)
-        this.nomiPiatti = piatti;
+        this.nomiPiatti = List.of(piatti);
     }
 
     // proprietà derivata
-    public double getCaricoLavoroMenuTematico() {
-        // TODO
-        // invariante di classe
-        // la somma del carico di lavoro di tutti i piatti contenuti
-        // 
-        return 0;
+    public double getCaricoLavoroMenuTematico(List<Piatto> piatti) {
+        return piatti
+            .stream()
+            .filter(p -> nomiPiatti.contains(p.getNome()))
+            .mapToDouble(p -> p.getCaricoLavoro())
+            .sum();
     }
 
     public String getNome() {
         return this.nome;
     }
 
-    public String getPeriodoValidita() {
+    public Period getPeriodoValidita() {
         return this.periodoValidita;
     }
 
-    public String[] getPiatti() {
-        return this.nomiPiatti;
+    public List<String> getNomiPiatti() {
+        return List.copyOf(this.nomiPiatti);
+    }
+
+    public boolean isValid(int caricoLavoroPersona, List<Piatto> piatti) {
+        return getCaricoLavoroMenuTematico(piatti) <= (4/3) * caricoLavoroPersona;
     }
 
     @Override
     public String toString() {
         return "MenuTematico [nome=" + nome
             + ", periodoValidita=" + periodoValidita
-            + ", nomiPiatti=" + Arrays.toString(nomiPiatti) + "]";
+            + ", nomiPiatti=" + nomiPiatti + "]";
     }
 }

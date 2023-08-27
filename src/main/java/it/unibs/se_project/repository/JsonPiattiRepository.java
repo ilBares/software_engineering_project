@@ -12,7 +12,7 @@ import it.unibs.se_project.business.Piatto;
 import it.unibs.se_project.repository.interfaces.PiattiRepository;
 
 public class JsonPiattiRepository implements PiattiRepository<Piatto> {
-    public static final String FILE_NAME = "src/main/resources/piatti.json";
+    public static final String FILE_NAME = "resources/piatti.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private ArrayList<Piatto> piatti;
 
@@ -34,7 +34,7 @@ public class JsonPiattiRepository implements PiattiRepository<Piatto> {
     public void setPiatti(Piatto[] array) {
         piatti = array != null
             ? new ArrayList<Piatto>(List.of(array))
-            : null;
+            : new ArrayList<Piatto>();
     }
 
     @Override

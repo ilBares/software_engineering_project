@@ -10,7 +10,7 @@ import it.unibs.se_project.business.RegistroMagazzino;
 import it.unibs.se_project.repository.interfaces.RegistroMagazzinoRepository;
 
 public class JsonRegistroMagazzinoRepository implements RegistroMagazzinoRepository<RegistroMagazzino> {
-    public static final String FILE_NAME = "src/main/resources/sample_registro_magazzino.json";
+    public static final String FILE_NAME = "resources/sample_registro_magazzino.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private RegistroMagazzino registroMagazzino;
 

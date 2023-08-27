@@ -12,7 +12,7 @@ import it.unibs.se_project.business.MenuTematico;
 import it.unibs.se_project.repository.interfaces.MenuTematiciRepository;
 
 public class JsonMenuTematiciRepository implements MenuTematiciRepository<MenuTematico> {
-    public static final String FILE_NAME = "src/main/resources/menu_tematici.json";
+    public static final String FILE_NAME = "resources/menu_tematici.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private ArrayList<MenuTematico> menuTematici;
 
@@ -34,7 +34,7 @@ public class JsonMenuTematiciRepository implements MenuTematiciRepository<MenuTe
     public void setMenuTematici(MenuTematico[] array) {
         menuTematici = array != null
             ? new ArrayList<MenuTematico>(List.of(array))
-            : null;
+            : new ArrayList<MenuTematico>();
     }
 
     @Override
