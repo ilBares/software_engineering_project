@@ -3,7 +3,7 @@ package it.unibs.se_project.business;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import it.unibs.se_project.enums.UnitaDiMisura;
+import it.unibs.se_project.business.enums.UnitaDiMisura;
 
 public class Item {
     private String nome;
@@ -36,6 +36,10 @@ public class Item {
 
     public void setUnitaDiMisura(UnitaDiMisura unitaDiMisura) {
         this.unitaDiMisura = unitaDiMisura;
+    }
+
+    public void updateQuantita(double additional) {
+        quantita += additional;
     }
 
     @Override

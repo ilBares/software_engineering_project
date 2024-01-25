@@ -1,12 +1,10 @@
 package it.unibs.se_project.repository.interfaces;
 
-import java.util.List;
-
 public interface MenuTematiciRepository<T> {
     
-    List<T> getMenuTematici();
-    void setMenuTematici(T[] array);
+    T getMenuTematiciDictionary();
+    void setMenuTematiciDictionary(T menuTematici);
 
-    void add(T menuTematico);
-    boolean delete(T menuTematico);
+    // void add(T menuTematico);
+    // boolean delete(T menuTematico);
 }

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
 
-import org.junit.Assert;
 import org.junit.Test;
 import it.unibs.se_project.business.Period;
 

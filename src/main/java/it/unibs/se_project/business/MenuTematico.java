@@ -10,10 +10,6 @@ public class MenuTematico {
     private Period periodoValidita;
     private List<String> nomiPiatti;
 
-    // TODO
-    // bastano i nomi dei piatti per il menu tematico
-    // quando viene aggiunto un menu tematico a una prenotazione,
-    // vanno presi tutti i nomi
     @JsonCreator
     public MenuTematico(
         @JsonProperty("nome") String nome,
@@ -22,15 +18,6 @@ public class MenuTematico {
     ) {
         this.nome = nome;
         this.periodoValidita = Period.fromString(periodoValidita);
-        // TODO
-        // initializePiatti(nomiPiatti);
-        // function che "prende" i nomi dalla JsonPiattiRepository
-        // o, in alternativa, PiattiRepositoryService
-        // e ottiene gli oggetti associati
-        // ovvero aggiugni una funzione a PiattiRepositoryService
-        // che restituisce un oggetto piatto dal nome (se presente)
-        // restituisce solo i piatti disponibili nella data presente
-        // PiattiRepositoryService.getAvailablePiattoObject(String nome)
         this.nomiPiatti = List.of(piatti);
     }
 

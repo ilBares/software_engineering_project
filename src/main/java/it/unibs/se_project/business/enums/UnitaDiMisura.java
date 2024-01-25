@@ -1,4 +1,4 @@
-package it.unibs.se_project.enums;
+package it.unibs.se_project.business.enums;
 
 public enum UnitaDiMisura {
     L("LITRO"),

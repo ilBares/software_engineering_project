@@ -36,12 +36,11 @@ public class MenuCarta {
         return List.copyOf(piattiMap.keySet());
     }
 
+    public Piatto getPiatto(String nomePiatto) {
+        return piattiMap.get(nomePiatto);
+    }
+
     public boolean contains(String nomePiatto) {
         return piattiMap.containsKey(nomePiatto);
     }
-    // TODO
-    
-    // getPiatto from name
-    // get Ricetta from name
-    
 }

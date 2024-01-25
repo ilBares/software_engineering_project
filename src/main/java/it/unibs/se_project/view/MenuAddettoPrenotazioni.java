@@ -46,12 +46,12 @@ public class MenuAddettoPrenotazioni implements ShowableMenu {
                 this::showDailyPrenotazioni
             ),
             new MyMenuItem(
-                "Mostra l'elenco delle prenotazioni",
+                "Mostra l'elenco di tutte le prossime prenotazioni",
                 this::showPrenotazioni
             )
         };
 
-        menu = new MyMenu("RISORANTE [utente: Addetto alle Prenotazioni]", items);
+        menu = new MyMenu("RISTORANTE [utente: Addetto alle Prenotazioni]", items);
     }
 
     private void displayDailyMenuCarta() {
@@ -73,6 +73,7 @@ public class MenuAddettoPrenotazioni implements ShowableMenu {
 
     private void addPrenotazione() {
         String message = "Data in cui vuoi aggiungere la prenotazione: ";
+
         LocalDate isoDate = DataInput.readISODate(message, controller.getAnticipoGiorniPrenotazione());
         MenuCarta menuCarta = controller.getMenuCarta(isoDate);
 
@@ -86,16 +87,19 @@ public class MenuAddettoPrenotazioni implements ShowableMenu {
             MenuAddPrenotazione optionMenu = new MenuAddPrenotazione(
                 name,
                 numeroCoperti,
+                controller.getCaricoLavoroResiduo(isoDate),
                 menuCarta,
-                controller.getMenuTematici(),
+                controller.getMenuTematiciDictionary(),
                 this::storePrenotazione
             );
             optionMenu.showMenu();
+        } else {
+            System.out.printf("Nella data selezionata non c'è posto per %s coperti.", numeroCoperti);
         }
     }
 
-    private void storePrenotazione(Prenotazione prenotazione) {
-        controller.storePrenotazione(prenotazione);
+    private void storePrenotazione(Prenotazione prenotazione, MenuCarta menuCarta) {
+        controller.storePrenotazione(prenotazione, menuCarta);
     }
 
     private void showDailyPrenotazioni() {
@@ -107,22 +111,20 @@ public class MenuAddettoPrenotazioni implements ShowableMenu {
     }
 
     private void _displayPrenotazioni(List<Prenotazione> prenotazioni) {
-        if (!prenotazioni.isEmpty()) {
-            prenotazioni
-                .stream()
-                .forEach(p -> {
-                    System.out.printf("%s• %s (%d coperti)", NEWLINE, p.getNome(), p.getNumeroCoperti());
-                    
-                    p.getOrdini()
-                        .stream()
-                        .forEach((o) -> System.out.printf("%s%s- %d (%s persone)",
-                            NEWLINE,
-                            INDENT,
-                            o.getNumeroPersone(),
-                            o.getNomePiatto()
-                        ));
-                });
-        }
+        prenotazioni
+            .stream()
+            .forEach(p -> {
+                System.out.printf("%s• %s (%d coperti)", NEWLINE, p.getCliente(), p.getNumeroCoperti());
+                
+                p.getOrdini()
+                    .stream()
+                    .forEach((o) -> System.out.printf("%s%s- %d (%s persone)",
+                        NEWLINE,
+                        INDENT,
+                        o.getNumeroPersone(),
+                        o.getNomePiatto()
+                    ));
+            });
     }
 
     private void _displayListName(String name) {

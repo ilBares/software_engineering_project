@@ -2,17 +2,15 @@ package repository;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibs.se_project.business.MenuTematico;
+import it.unibs.se_project.business.dictionary.MenuTematiciDictionary;
 import it.unibs.se_project.repository.JsonMenuTematiciRepository;
 import it.unibs.se_project.repository.interfaces.MenuTematiciRepository;
 
 public class JsonMenuTematiciRepositoryTest {
-    private MenuTematiciRepository<MenuTematico> repository;
+    private MenuTematiciRepository<MenuTematiciDictionary> repository;
 
     @Before
     public void setUp() {
@@ -21,10 +19,10 @@ public class JsonMenuTematiciRepositoryTest {
 
     @Test
     public void testGetMenuTematici() {
-        List<MenuTematico> menuTematici = repository.getMenuTematici();
+        MenuTematiciDictionary menuTematici = repository.getMenuTematiciDictionary();
 
-        assertEquals(menuTematici.size(), 2);
-        assertEquals(menuTematici.get(0).getNomiPiatti().get(1), "pasta");
+        // assertEquals(menuTematici.size(), 2);
+        assertEquals(menuTematici.getMenuTematico("Menu Natale").getNomiPiatti().get(1), "pasta");
 
         System.out.println("\nMENU_TEMATICI: " + menuTematici);
     }

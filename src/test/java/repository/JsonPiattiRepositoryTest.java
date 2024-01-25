@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.unibs.se_project.business.Piatto;
-import it.unibs.se_project.enums.UnitaDiMisura;
+import it.unibs.se_project.business.enums.UnitaDiMisura;
 import it.unibs.se_project.repository.JsonPiattiRepository;
 import it.unibs.se_project.repository.interfaces.PiattiRepository;
 

@@ -1,12 +1,10 @@
 package it.unibs.se_project.repository.interfaces;
 
-import java.util.List;
-
 public interface BevandeRepository<T> {
 
-    List<T> getBevande();
-    void setBevande(T[] array);
+    T getBevandeDictionary();
+    void setBevandeDictionary(T bevande);
 
-    void add(T bevanda);
-    boolean delete(T bevanda);
+    // void add(T bevanda);
+    // boolean delete(T bevanda);
 }

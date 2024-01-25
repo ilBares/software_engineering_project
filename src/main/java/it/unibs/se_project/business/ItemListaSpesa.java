@@ -3,7 +3,7 @@ package it.unibs.se_project.business;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import it.unibs.se_project.enums.UnitaDiMisura;
+import it.unibs.se_project.business.enums.UnitaDiMisura;
 
 public class ItemListaSpesa extends Item {
 

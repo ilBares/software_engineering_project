@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import it.unibs.se_project.business.Config;
-import it.unibs.se_project.enums.UnitaDiMisura;
+import it.unibs.se_project.business.enums.UnitaDiMisura;
 import it.unibs.se_project.repository.JsonConfigRepository;
 import it.unibs.se_project.repository.interfaces.ConfigRepository;
 

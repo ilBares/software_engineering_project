@@ -10,7 +10,7 @@ import it.unibs.se_project.business.Calendario;
 import it.unibs.se_project.repository.interfaces.CalendarioRepository;
 
 public class JsonCalendarioRepository implements CalendarioRepository<Calendario> {
-    public static final String FILE_NAME = "resources/sample_calendario.json";
+    public static final String FILE_NAME = "resources/calendario.json";
     private final ObjectMapper mapper = new ObjectMapper();
     private Calendario calendario;
 

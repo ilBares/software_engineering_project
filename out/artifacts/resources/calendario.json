@@ -1,0 +1,131 @@
+{
+  "calendario": {
+    "2023-08-29": {
+      "prenotazioni": [
+        {
+          "cliente": "marcolindo",
+          "numero_coperti": 5,
+          "carico_lavoro_richiesto": 2.2,
+          "ordini": [
+            {
+              "nome_piatto": "tagliata",
+              "numero_persone": 4
+            },
+            {
+              "nome_piatto": "pasta",
+              "numero_persone": 1
+            }
+          ]
+        },
+        {
+          "cliente": "lucca",
+          "numero_coperti": 5,
+          "carico_lavoro_richiesto": 2.2,
+          "ordini": [
+            {
+              "nome_piatto": "tagliata",
+              "numero_persone": 4
+            },
+            {
+              "nome_piatto": "pasta",
+              "numero_persone": 1
+            }
+          ]
+        }
+      ],
+      "lista_spesa": {
+        "pane": {
+          "nome": "pane",
+          "quantita": 1.5,
+          "unita_misura": "HG"
+        },
+        "limone": {
+          "nome": "limone",
+          "quantita": 0.09,
+          "unita_misura": "KG"
+        },
+        "grissini": {
+          "nome": "grissini",
+          "quantita": 0.5,
+          "unita_misura": "HG"
+        },
+        "carne": {
+          "nome": "carne",
+          "quantita": 1.21,
+          "unita_misura": "KG"
+        },
+        "acqua": {
+          "nome": "acqua",
+          "quantita": 1.0,
+          "unita_misura": "L"
+        },
+        "pasta": {
+          "nome": "pasta",
+          "quantita": 0.21,
+          "unita_misura": "KG"
+        },
+        "vino": {
+          "nome": "vino",
+          "quantita": 7.5,
+          "unita_misura": "L"
+        }
+      }
+    },
+    "2023-08-30": {
+      "prenotazioni": [
+        {
+          "cliente": "lucca",
+          "numero_coperti": 5,
+          "carico_lavoro_richiesto": 2.2,
+          "ordini": [
+            {
+              "nome_piatto": "tagliata",
+              "numero_persone": 4
+            },
+            {
+              "nome_piatto": "pasta",
+              "numero_persone": 1
+            }
+          ]
+        }
+      ],
+      "lista_spesa": {
+        "pane": {
+          "nome": "pane",
+          "quantita": 1.5,
+          "unita_misura": "HG"
+        },
+        "limone": {
+          "nome": "limone",
+          "quantita": 0.09,
+          "unita_misura": "KG"
+        },
+        "grissini": {
+          "nome": "grissini",
+          "quantita": 0.5,
+          "unita_misura": "HG"
+        },
+        "carne": {
+          "nome": "carne",
+          "quantita": 1.21,
+          "unita_misura": "KG"
+        },
+        "acqua": {
+          "nome": "acqua",
+          "quantita": 1.0,
+          "unita_misura": "L"
+        },
+        "pasta": {
+          "nome": "pasta",
+          "quantita": 0.21,
+          "unita_misura": "KG"
+        },
+        "vino": {
+          "nome": "vino",
+          "quantita": 7.5,
+          "unita_misura": "L"
+        }
+      }
+    }
+  }
+}

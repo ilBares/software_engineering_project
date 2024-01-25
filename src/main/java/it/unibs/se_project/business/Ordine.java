@@ -16,10 +16,12 @@ public class Ordine {
         this.numeroPersone = numeroPersone;
     }
 
+    @JsonProperty("nome_piatto")
     public String getNomePiatto() {
         return nomePiatto;
     }
 
+    @JsonProperty("numero_persone")
     public int getNumeroPersone() {
         return numeroPersone;
     }

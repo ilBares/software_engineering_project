@@ -14,6 +14,7 @@ public class MyMenu implements Runnable {
     private int frameLength;
     private int enterRepetitions = 10;
     private String exit = "EXIT";
+    private boolean forceEnd = false;
 
     /**
      * Constructs a new {@code Menu} with input {@code Items}.
@@ -37,22 +38,24 @@ public class MyMenu implements Runnable {
         generateFrameLength();
         String frame = MenuUtils.generateFrame(frameLength);
 
-        String choice;
+        String choice = "0";
         do {
-            System.out.println(MenuUtils.formatTitle(title, frame));
-            printOptions();
-            System.out.println(frame);
-            choice = DataInput.readNotEmptyString("» ");
-            if (itemsMap.containsKey(choice)) {
-                itemsMap.get(choice).getFunction().run();
-                MyTime.pause(MyTime.HIGH_MILLIS_PAUSE);
+            if (!forceEnd) {
+                System.out.println(MenuUtils.formatTitle(title, frame));
+                printOptions();
+                System.out.println(frame);
+                choice = DataInput.readNotEmptyString("» ");
+                if (itemsMap.containsKey(choice)) {
+                    itemsMap.get(choice).getFunction().run();
+                    MyTime.pause(MyTime.HIGH_MILLIS_PAUSE);
+                }
+                else if (!choice.equals(endKey)) {
+                    System.out.print(MenuUtils.INVALID_OPTION);
+                    MyTime.pause(MyTime.LOW_MILLIS_PAUSE);
+                }
+                System.out.println(MenuUtils.getEnters(enterRepetitions));
             }
-            else if (!choice.equals(endKey)) {
-                System.out.print(MenuUtils.INVALID_OPTION);
-                MyTime.pause(MyTime.LOW_MILLIS_PAUSE);
-            }
-            System.out.println(MenuUtils.getEnters(enterRepetitions));
-        } while (!choice.equals(endKey));
+        } while (!choice.equals(endKey) && !forceEnd);
     }
 
     /**
@@ -110,13 +113,15 @@ public class MyMenu implements Runnable {
     }
 
     /**
-     * This method allows to change {@link #enterRepetitions} value.
-     *
      * @param text new {@link #exit} text
      */
     public void changeExitText(String text) {
         exit = text;
         generateFrameLength();
+    }
+
+    public void end() {
+        forceEnd = true;
     }
 
     /**

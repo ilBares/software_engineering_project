@@ -1,12 +1,10 @@
 package it.unibs.se_project.repository.interfaces;
 
-import java.util.List;
-
 public interface GeneriExtraRepository<T> {
 
-    List<T> getGeneriExtra();
-    void setGeneriExtra(T[] array);
+    T getGeneriExtraDictionary();
+    void setGeneriExtraDictionary(T bevande);
 
-    void add(T genereExtra);
-    boolean delete(T genereExtra);
+    // void add(T genereExtra);
+    // boolean delete(T genereExtra);
 }

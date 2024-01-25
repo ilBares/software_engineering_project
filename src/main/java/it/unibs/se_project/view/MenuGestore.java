@@ -7,8 +7,8 @@ import it.unibs.se_project.business.GenereExtra;
 import it.unibs.se_project.business.MenuTematico;
 import it.unibs.se_project.business.Piatto;
 import it.unibs.se_project.business.Ricetta;
+import it.unibs.se_project.business.enums.UnitaDiMisura;
 import it.unibs.se_project.controller.GestoreController;
-import it.unibs.se_project.enums.UnitaDiMisura;
 import it.unibs.se_project.view.interfaces.ShowableMenu;
 import it.unibs.se_project.view.utilities.MyMenu;
 import it.unibs.se_project.view.utilities.MyMenuItem;
@@ -68,7 +68,7 @@ public class MenuGestore implements ShowableMenu {
             ),
         };
 
-        menu = new MyMenu("RISORANTE [utente: Gestore]", items);
+        menu = new MyMenu("RISTORANTE [utente: Gestore]", items);
     }
 
     private void displayCaricoLavoroPersona() {

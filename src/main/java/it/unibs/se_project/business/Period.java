@@ -66,8 +66,11 @@ public class Period {
         if (month > start.getMonth() && month < end.getMonth()) {
             return true;
         }
-        if (month == start.getMonth() || month == end.getMonth()) {
-            return day >= start.getDay() && day <= end.getDay();
+        if (month == start.getMonth()) {
+            return day >= start.getDay();
+        }
+        if (month == end.getMonth()) {
+            return day <= end.getDay();
         }
         return false;
     }

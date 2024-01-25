@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Prenotazione {
     private String cliente;
     private int numeroCoperti;
-    // TODO
+    private double caricoLavoroRichiesto;
     // invariante
     // Σ(ordine in ordini).quantita >= numeroCoperti
     // significa che ogni cliente ordina almeno un piatto
@@ -19,31 +19,49 @@ public class Prenotazione {
     public Prenotazione(
         @JsonProperty("cliente") String cliente,
         @JsonProperty("numero_coperti") int numeroCoperti,
+        @JsonProperty("carico_lavoro_richiesto") double caricoLavoroRichiesto,
         @JsonProperty("ordini") Ordine[] ordini
     ) {
         this.cliente = cliente;
         this.numeroCoperti = numeroCoperti;
+        this.caricoLavoroRichiesto = caricoLavoroRichiesto;
         this.ordini = new ArrayList<Ordine>(List.of(ordini));
     }
 
-    public String getNome() {
+    public static Prenotazione emptyPrenotazione(String name, int numeroCoperti) {
+        return new Prenotazione(name, numeroCoperti, 0, new Ordine[0]);
+    }
+
+    @JsonProperty("cliente")
+    public String getCliente() {
         return this.cliente;
     }
 
+    @JsonProperty("numero_coperti")
     public int getNumeroCoperti() {
         return this.numeroCoperti;
     }
 
+    @JsonProperty("ordini")
     public List<Ordine> getOrdini() {
         return this.ordini;
     }
     
+    @JsonProperty("carico_lavoro_richiesto")
+    public double getCaricoLavoroRichiesto() {
+        return caricoLavoroRichiesto;
+    }
+
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
     public void setNumeroCoperti(int numeroCoperti) {
         this.numeroCoperti = numeroCoperti;
+    }
+    
+    public void setCaricoLavoroRichiesto(double caricoLavoroRichiesto) {
+        this.caricoLavoroRichiesto = caricoLavoroRichiesto;
     }
 
     public void setOrdini(List<Ordine> ordini) {
@@ -52,10 +70,6 @@ public class Prenotazione {
 
     public void addOrdine(Ordine ordine) {
         ordini.add(ordine);
-    }
-
-    public static Prenotazione emptyPrenotazione(String name, int numeroCoperti) {
-        return new Prenotazione(name, numeroCoperti, new Ordine[0]);
     }
 
     @Override

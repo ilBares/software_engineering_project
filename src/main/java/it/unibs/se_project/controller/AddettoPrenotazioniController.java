@@ -3,38 +3,42 @@ package it.unibs.se_project.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import it.unibs.se_project.business.Calendario;
-import it.unibs.se_project.business.Config;
 import it.unibs.se_project.business.MenuCarta;
 import it.unibs.se_project.business.MenuTematico;
 import it.unibs.se_project.business.Period;
 import it.unibs.se_project.business.Piatto;
 import it.unibs.se_project.business.Prenotazione;
-import it.unibs.se_project.repository.interfaces.CalendarioRepository;
-import it.unibs.se_project.repository.interfaces.ConfigRepository;
-import it.unibs.se_project.repository.interfaces.MenuTematiciRepository;
+import it.unibs.se_project.business.dictionary.MenuTematiciDictionary;
 import it.unibs.se_project.repository.interfaces.PiattiRepository;
+import it.unibs.se_project.service.BevandeService;
+import it.unibs.se_project.service.CalendarioService;
+import it.unibs.se_project.service.ConfigService;
+import it.unibs.se_project.service.GeneriExtraService;
+import it.unibs.se_project.service.MenuTematiciService;
 
 public class AddettoPrenotazioniController {
-    // TODO
-    // ADD PRENOTAZIONE AGGIUNGERA' IN AUTOMATICO GENERI EXTRA E BEVANDE
-    // PRIMA DI AGGIUNGERLA SULLA LISTA DELLA SPESA
-
-    // REPOSITORIES
-    private CalendarioRepository<Calendario> rCalendario;
-    private ConfigRepository<Config> rConfig;
-    private MenuTematiciRepository<MenuTematico> rMenuTematici;
+    // SERVICES
+    private CalendarioService sCalendario;
+    private ConfigService sConfig;
+    private MenuTematiciService sMenuTematici;
+    private BevandeService sBevande;
+    private GeneriExtraService sGeneriExtra;
     private PiattiRepository<Piatto> rPiatti;
     
+    
     public AddettoPrenotazioniController(
-        CalendarioRepository<Calendario> rCalendario,
-        ConfigRepository<Config> rConfig,
-        MenuTematiciRepository<MenuTematico> rMenuTematici,
+        CalendarioService sCalendario,
+        ConfigService sConfig,
+        MenuTematiciService sMenuTematici,
+        BevandeService sBevande,
+        GeneriExtraService sGeneriExtra,
         PiattiRepository<Piatto> rPiatti
     ) {
-        this.rCalendario = rCalendario;
-        this.rConfig = rConfig;
-        this.rMenuTematici = rMenuTematici;
+        this.sCalendario = sCalendario;
+        this.sConfig = sConfig;
+        this.sMenuTematici = sMenuTematici;
+        this.sBevande = sBevande;
+        this.sGeneriExtra = sGeneriExtra;
         this.rPiatti = rPiatti;
     }
 
@@ -56,46 +60,44 @@ public class AddettoPrenotazioniController {
     }
 
     public List<MenuTematico> getMenuTematici() {
-        return rMenuTematici.getMenuTematici();
+        return sMenuTematici.getMenuTematici();
+    }
+
+    public MenuTematiciDictionary getMenuTematiciDictionary() {
+        return sMenuTematici.getMenuTematiciDictionary();
     }
 
     public List<Prenotazione> getPrenotazioni() {
-        return rCalendario.getCalendario().getPrenotazioni();
+        return sCalendario.getPrenotazioni();
     }
 
     public List<Prenotazione> getPrenotazioni(LocalDate date) {
-        return rCalendario.getCalendario().getPrenotazioni(date);
+        return sCalendario.getPrenotazioni(date);
     }
 
     public int getAnticipoGiorniPrenotazione() {
-        return rConfig.getConfig().getAnticipoGiorniPrenotazione();
+        return sConfig.getAnticipoGiorniPrenotazione();
     }
 
-    public boolean storePrenotazione(Prenotazione prenotazione) {
-        // TODO MOVE TO CALENDARIO SERVICE
-        Calendario calendarioUpdated = rCalendario.getCalendario();
-
-        calendarioUpdated.addPrenotazione(prenotazione, LocalDate.now(), rPiatti.getPiatti());
-        rCalendario.updateCalendario(calendarioUpdated);
-
-        return true;
+    public void storePrenotazione(Prenotazione prenotazione, MenuCarta menuCarta) {
+        sCalendario.storePrenotazione(
+            prenotazione,
+            menuCarta,
+            sBevande.getBevande(),
+            sGeneriExtra.getGeneriExtra()
+        );
     }
 
     public int getNumeroPosti() {
-        return rConfig.getConfig().getNumeroPosti();
+        return sConfig.getNumeroPosti();
     }
 
     public int getNumeroPrenotazioni(LocalDate date) {
-        List<Prenotazione> prenotazioni = getPrenotazioni(date);
+        return sCalendario.getNumeroPrenotazioni(date);
+    }
 
-        if (prenotazioni.isEmpty()) {
-            return 0;
-        }
-        
-        return prenotazioni
-            .stream()
-            .mapToInt(Prenotazione::getNumeroCoperti)
-            .sum();
+    public double getCaricoLavoroResiduo(LocalDate date) {
+        return sConfig.getCaricoLavoroSostenibile() - sCalendario.getCaricoLavoroGiornaliero(date);
     }
 
     public boolean validateNumeroCoperti(LocalDate date, int numeroCoperti) {

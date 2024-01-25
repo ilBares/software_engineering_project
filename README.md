@@ -26,4 +26,46 @@ __Prenotazione__ ==> aggiunta dall'_addetto alle prenotazioni_
 __Bevanda__ ==> stabilito dal _gestore_
 
 
+## Package Diagram
+|-- business
+|   |--  dictionary
+|   |   |-- BevandeDictionary.java
+|   |   |-- GeneriDictionary.java
+|   |--  enums
+|   |   |-- UnitaMisura.java
+|   |--  Bevanda.java
+|   |--  Ingrediente.java
+|   |--  Piatto.java
+|-- controller
+|   |--  AddettoPrenotazioniController.java
+|   |--  GestoreController.java
+|   |--  MagazziniereController.java
+|-- repository
+|   |--  interfaces
+|   |   |-- BevandeRepository.java
+|   |   |-- CalendarioRepository.java
+|   |   |-- ConfigRepository.java
+|   |   |-- PiattiRepository.java
+|   |--  JsonBevandeRepository.java
+|   |--  JsonPiattiRepository.java
+|-- service
+|   |--  BevandeService.java
+|   |--  CalendarioService.java
+|   |--  ConfigService.java
+|-- users
+|   |--  AddettoPrenotazioni.java
+|   |--  Gestore.java
+|   |--  Magazziniere.java
+|-- view
+|   |--  common
+|   |   |-- MenuAddPrenotazione.java
+|   |--  interfaces
+|   |   |-- ShowableMenu.java
+|   |--  utilities
+|   |   |-- MyMenu.java
+|   |--  MenuAddettoPrenotazioni.java
+|   |--  MenuGestore.java
+|   |--  MenuMagazziniere.java
+|-- test
+
 
